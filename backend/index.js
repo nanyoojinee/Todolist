@@ -1,14 +1,5 @@
-const cors = require("cors");
-const express = require('express');
-const app = express();
-
-
-app.use(cors());
-
-app.get('/', (req, res)=>{
-    res.send('유진은석의 투두')
-})
-
+import 'dotenv/config'
+import { app } from "./src/app.js";
 
 
 const PORT = process.env.SERVER_PORT || 5000;
