@@ -10,6 +10,14 @@ const taskController = {
         } catch(err){
             next(err)
         }
+    },
+    getTasks: async (req,res,next) => {
+        try{
+            const tasks = await taskService.getTasks();
+            res.status(200).send(tasks);
+        } catch(err){
+            next(err)
+        }
     }
 }
 

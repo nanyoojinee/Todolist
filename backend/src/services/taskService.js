@@ -16,6 +16,16 @@ const taskService = {
             throw err;
         }
     },
+
+    getTasks: async () => {
+        try{
+            const result = await db.query("SELECT content FROM tasks");
+            return result
+            
+        } catch (err){
+            throw err;
+        }
+    }
 };
 
 export {taskService};
