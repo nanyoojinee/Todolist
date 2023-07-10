@@ -1,7 +1,16 @@
-import React from "react";
-import { TodoMainWrapper, Header, Quote, TodoBox } from "../styles/TodoMain";
+import React, { useState } from "react";
+import {
+  TodoMainWrapper,
+  Header,
+  Quote,
+  TodoBox,
+  TodayDate,
+} from "../styles/TodoMain";
+import TodoForm from "./TodoForm";
 
 function TodoMain() {
+  const [tasks, setTasks] = useState([]); // 할 일 항목들을 저장하는 배열
+
   return (
     <TodoMainWrapper>
       <Header>
@@ -15,19 +24,8 @@ function TodoMain() {
         </p>
       </Quote>
       <TodoBox>
-        <div>Today's Date: {new Date().toLocaleDateString()}</div>
-        <div>
-          <input type="checkbox" id="task1" />
-          <label htmlFor="task1">Task 1</label>
-        </div>
-        <div>
-          <input type="checkbox" id="task2" />
-          <label htmlFor="task2">Task 2</label>
-        </div>
-        <div>
-          <input type="checkbox" id="task3" />
-          <label htmlFor="task3">Task 3</label>
-        </div>
+        <TodayDate>Today's Date: {new Date().toLocaleDateString()}</TodayDate>
+        <TodoForm tasks={tasks} setTasks={setTasks} />
       </TodoBox>
     </TodoMainWrapper>
   );
